@@ -6,6 +6,8 @@ const admin = require("firebase-admin");
 const functions = require("firebase-functions");
 const createUser = require("./create-user");
 const serviceAccount = require("./account/service-account.json");
+const requestOtp = require("./request-otp");
+const verifyOtp = require("./verify-otp");
 
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
@@ -20,3 +22,5 @@ admin.initializeApp({
 });
 
 exports.createUser = functions.https.onRequest(createUser);
+exports.requestOtp = functions.https.onRequest(requestOtp);
+exports.verifyOtp = functions.https.onRequest(verifyOtp);
